@@ -20,7 +20,7 @@ describe('app tests', () => {
         withTime(Time => {
             const DOM = mockDOMSource({});
             const history = Time.diagram('a-b--a--a--b-', {
-                a: '/counter',
+                a: '/home',
                 b: '/speaker'
             }).map(fakeLocationObj);
 
@@ -57,7 +57,7 @@ describe('app tests', () => {
             const sinks = wrapMain(App)({ DOM, history } as any);
 
             const expected$ = Time.diagram('a--a--', {
-                a: '/counter'
+                a: '/home'
             });
 
             Time.assertEqual(sinks.router!, expected$);

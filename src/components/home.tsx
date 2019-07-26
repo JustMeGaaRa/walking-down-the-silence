@@ -1,5 +1,5 @@
 import xs, { Stream } from 'xstream';
-import { VNode, DOMSource } from '@cycle/dom';
+import { VNode, DOMSource, strong } from '@cycle/dom';
 
 import { Sources, Sinks, Reducer } from '../interfaces';
 
@@ -16,7 +16,7 @@ interface DOMIntent {
     link$: Stream<null>;
 }
 
-export function Counter({ DOM, state }: Sources<State>): Sinks<State> {
+export function Home({ DOM, state }: Sources<State>): Sinks<State> {
     const { increment$, decrement$, link$ }: DOMIntent = intent(DOM);
 
     return {
@@ -46,18 +46,10 @@ function model(
 
 function view(state$: Stream<State>): Stream<VNode> {
     return state$.map(({ count }) => (
-        <div>
-            <h2>My Awesome Cycle.js app - Page 1</h2>
-            <span>{'Counter: ' + count}</span>
-            <button type="button" className="add">
-                Increase
-            </button>
-            <button type="button" className="subtract">
-                Decrease
-            </button>
-            <button type="button" data-action="navigate">
-                Page 2
-            </button>
+        <div className="centered">
+            <div className="title-box">
+                <strong className="title">WALKING DOWN THE SILENCE</strong>
+            </div>
         </div>
     ));
 }

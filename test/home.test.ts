@@ -3,7 +3,7 @@ import { withTime, addPrevState } from 'cyclejs-test-helpers';
 import { assertLooksLike, Wildcard } from 'snabbdom-looks-like';
 import { mockDOMSource, VNode, div, span } from '@cycle/dom';
 
-import { Counter } from '../src/components/counter';
+import { Home } from '../src/components/home';
 import { wrapMain } from '../src/drivers';
 
 describe('counter tests', () => {
@@ -20,8 +20,8 @@ describe('counter tests', () => {
             });
             const history = xs.never();
 
-            const sinks: any = wrapMain(Counter)({ DOM, history } as any);
-            const _sinks: any = wrapMain(addPrevState(Counter, { count: 5 }))({
+            const sinks: any = wrapMain(Home)({ DOM, history } as any);
+            const _sinks: any = wrapMain(addPrevState(Home, { count: 5 }))({
                 DOM,
                 history
             } as any);
@@ -58,7 +58,7 @@ describe('counter tests', () => {
             });
             const history = xs.merge(xs.of('/counter'), xs.never());
 
-            const sinks: any = wrapMain(Counter)({ DOM, history } as any);
+            const sinks: any = wrapMain(Home)({ DOM, history } as any);
 
             const expected$ = Time.diagram(diagram, {
                 x: '/speaker'

@@ -74,7 +74,7 @@ function intent(DOM: DOMSource): DOMIntent {
 }
 
 function redirect(link$: Stream<any>): Stream<string> {
-    return link$.mapTo('/counter');
+    return link$.mapTo('/home');
 }
 
 function speech(speech$: Stream<any>, state$: Stream<State>): Stream<string> {
